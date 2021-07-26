@@ -1,0 +1,150 @@
+body {
+  font-size: 30px;
+}
+
+.wrapper {
+  display: grid;
+  gap: 0.3rem;
+
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "title title title"
+    "banner banner bb1"
+    "banner banner bb2"
+    "side-menu main main"
+    "tags main main"
+    "recent main main"
+    "footer footer footer";
+}
+
+.wrapper > * {
+  padding: 1rem;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  background: #000;
+  color: white;
+  grid-area: header;
+}
+
+.title {
+  background: red;
+  grid-area: title;
+}
+
+.banner {
+  /* background: purple; */
+  background: radial-gradient(red, yellow, blue);
+  grid-area: banner;
+}
+
+.bb1 {
+  background: green;
+  grid-area: bb1;
+}
+
+.bb2 {
+  background: yellowgreen;
+  grid-area: bb2;
+}
+
+.side-menu {
+  background: linear-gradient(145deg, pink, purple);
+  grid-area: side-menu;
+}
+
+.tags {
+  background: yellow;
+  grid-area: tags;
+}
+
+.recent {
+  background: brown;
+  grid-area: recent;
+}
+
+.main {
+  grid-area: main;
+
+  display: flex;
+  /* flex-direction: row;
+	flex-wrap: wrap; */
+  flex-flow: row wrap;
+}
+
+.main > div {
+  background: blueviolet;
+  color: white;
+  min-width: 200px;
+  min-height: 200px;
+  margin: 2rem;
+  flex: 1;
+  border-radius: 10px;
+  box-shadow: -15px 14px 15px rgba(99, 96, 96, 0.5);
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  background: #000;
+  color: white;
+
+  grid-area: footer;
+}
+
+/* all — for all media types
+print — for printers
+screen — for computer screens, tablets and, smart-phones
+speech — for screen readers that “read” the page out loud */
+
+@media (max-width: 768px) {
+  .wrapper {
+    display: grid;
+    gap: 0.3rem;
+
+    grid-template-columns: auto;
+    grid-template-areas:
+      "header header"
+      "title title"
+      "banner banner"
+      "recent recent"
+      "bb1 bb2"
+      "main main"
+      "side-menu tags"
+      "footer footer";
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    display: grid;
+    gap: 0.3rem;
+
+    grid-template-columns: auto;
+    grid-template-areas:
+      "header"
+      "title"
+      "banner"
+      "recent"
+      "bb1"
+      "bb2"
+      "side-menu"
+      "tags"
+      "main"
+      "footer";
+  }
+  .text {
+    font-size: 16px;
+  }
+}
